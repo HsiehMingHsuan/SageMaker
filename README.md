@@ -1,12 +1,12 @@
 ﻿
 
-## AWS SageMaker
+## AWS SageMaker notebook instance
 
-### 步驟一: 創建 AWS SageMaker Notebook Instance
-
-要使用 AWS SageMaker 有兩種方法，第一個是用 AWS SageMaker Studio，其中的工具比較多。第二個是由自己開 Notebook 的方法
+要使用 AWS SageMaker 有兩種方法，第一個是用 AWS SageMaker Studio，其中的工具比較多。第二個是由自己開 Notebook 、 自己尋找演算法 train 的方法
 
 這裡先進行自己開 Notebook 方法的教學
+
+### 步驟一: 創建 AWS SageMaker Notebook Instance
 
 首先到 SageMaker 頁面下的 **筆記本**  **筆記本執行個體**
 
