@@ -240,4 +240,5 @@ train 完可以去 S3 bucket 下面 output 確認
 
 在 SageMaker 的儀表板中可以確認資源情況，要注意儀表板中的 **訓練任務** 以及 **處理任務** 可以想成是資料訓練跟資料處理的紀錄，是無法刪除的
 
-參考資料: [Get Started with Amazon SageMaker Notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-console.html)
+參考資料: 1. [Get Started with Amazon SageMaker Notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-console.html)
+	 2. [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/index.html)
