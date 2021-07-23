@@ -2,7 +2,7 @@
 
 ## AWS SageMaker notebook instance
 
-要使用 AWS SageMaker 有兩種方法，第一個是用 AWS SageMaker Studio，其中的工具比較多。第二個是由自己開 Notebook 、 自己尋找演算法 train 的方法
+要使用 AWS SageMaker 有幾種方法，其中有包含用 AWS SageMaker Studio 的，其中的工具比較多，還有由自己開 Notebook 、 自己尋找演算法 train 的方法
 
 這裡先進行自己開 Notebook 方法的教學
 
