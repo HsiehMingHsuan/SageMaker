@@ -48,6 +48,8 @@ ML (Machine Learning) 是一門高深複雜的學問。
  
  至於 ML 的數學意義可以想像在一個參數空間中我們想要找到一組參數能使 **loss function** 達到最小，於是我們每看過一個 **batch** 都去計算 **loss function** ，然後對 **loss funtion** 做微分就會大致知道參數往哪個方向調整會使 **loss function** 變小，並根據 **optimizer** 去調整改參數的方向。
 
+如果想要更深入了解 ML 後面的訓練原理跟邏輯，可以[參考](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 這個系列講述訓練神經網絡的原理。
+
  ### 訓練結束測試模型
  
  訓練結束後可以用測試資料去測試模型，不過如果使用 AWS SageMaker 的話你只要給它指定訓練資料跟測試資料的話這部分也自動化了。
