@@ -254,7 +254,7 @@ Studio 如果沒資源在跑，且裡面沒有佔用太多空間基本上不會�
 
 可以點選使用者
 
-![Alt text](./img/studioControl.png
+![Alt text](./img/studioControl.png)
 
 如果下面 **應用程式** 都沒在運作就能 **刪除使用者**
 
