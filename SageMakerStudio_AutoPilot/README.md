@@ -133,6 +133,10 @@ Autopilot experiment 全部完成後，以上兩個 Notebook 也會存在之前�
 
 這邊跑示範的時候是使用 [2700 個 row 的資料](./covid.train.csv)，到全部完成差不多跑了兩三個小時
 
+我這個範例最後的總花費大概是 7 美元左右
+
+主要的花費是 training 跟 hyperparameter 調教時訓練的價錢
+
 如果想要監控模型訓練階段或是 hyperparameters tuning 的進程
 
 可以去 SageMaker 的儀表板看整個 Autopilot 會用到的資源
