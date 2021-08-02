@@ -1,10 +1,4 @@
-# Amazon SageMaker Autopilot
-
-Amazon SageMaker Autopilot 是一個很方便的工具，它會自動化分析資料、處理資料、選擇適合資料的演算法、訓練模型、調整模型的 **hyperparameters** 、**交叉驗證 (cross-validation)** 模型，此外，它還會自動產生資料探勘與候選演算法的筆記本 (.ipynb)，再加上最後整個 Autopilot 都結束後會產生的資料解釋報告。簡單來說，你只要給這個 Autopilot 一組資料，設置好你所 target 的 feature，它就會自動化產生一個訓練好的模型與關於資料與資料處理流程的報告給你，對於一個不會 ML 的人來說也能很好的應用
-
-不過這麼方便的工具還是有限制的，限制的內容可以在[官方講解影片](https://www.youtube.com/watch?v=Ra4pDxbIK2M&t=45s)，前段看到，它只能應用在數據回歸或是分類任務上，遇到影像、文字或是其他 sequence-based 任務 (模型輸出長度不一定的任務) 就無法使用了，另外它也不能指定去使用 pre-trained model (別人訓練過、在某些任務結果有保證的模型) 與你的數據不能有太多數據遺失的情形
-
-下面我就先基本介紹一下 Amazon SageMaker Studio 然後在 Amazon SageMaker Studio 上面做一個 Autopilot 實際應用範例
+# Amazon SageMaker Studio 基本介紹 + Autopilot
 
 ## SageMaker Studio 基本介紹
 
@@ -19,6 +13,7 @@ Amazon SageMaker Autopilot 是一個很方便的工具，它會自動化分析�
 ![Alt text](./img/StudioInterface_2.png)
 
 ### 創建 SageMaker Studio Notebook
+
 我們從 Launcher 頁面下 **Notebooks and compute resources** 選擇 **SageMaker image**，這是選擇跑 Jupyter notebook 的資源，所以選越好費用越多，這裡我們示範選 **Data Science** 就好
 
 ![Alt text](./img/createNB.png)
@@ -42,7 +37,11 @@ Amazon SageMaker Autopilot 是一個很方便的工具，它會自動化分析�
 
 ## Autopilot 實際應用範例
 
-## 資料準備
+Amazon SageMaker Autopilot 是一個很方便的工具，它會自動化分析資料、處理資料、選擇適合資料的演算法、訓練模型、調整模型的 **hyperparameters** 、**交叉驗證 (cross-validation)** 模型，此外，它還會自動產生資料探勘與候選演算法的筆記本 (.ipynb)，再加上最後整個 Autopilot 都結束後會產生的資料解釋報告。簡單來說，你只要給這個 Autopilot 一組資料，設置好你所 target 的 feature，它就會自動化產生一個訓練好的模型與關於資料與資料處理流程的報告給你，對於一個不會 ML 的人來說也能很好的應用
+
+不過這麼方便的工具還是有限制的，限制的內容可以在[官方講解影片](https://www.youtube.com/watch?v=Ra4pDxbIK2M&t=45s)，前段看到，它只能應用在數據回歸或是分類任務上，遇到影像、文字或是其他 sequence-based 任務 (模型輸出長度不一定的任務) 就無法使用了，另外它也不能指定去使用 pre-trained model (別人訓練過、在某些任務結果有保證的模型) 與你的數據不能有太多數據遺失的情形
+
+### 資料準備
 
 範例需要用的資料來源為 [Delphi's covid-19 dataset](https://delphi.cmu.edu/covidcast/surveys/)，我們使用的資料是 2020 年的某三天美國關於 covid-19 做民調的資料，其中我們的任務是在被給予某地區所在州與某地區前兩天民調的一些狀態百分比，預測第三天篩檢呈陽性的百分比
 這裡簡單看一下資料的 feature 有哪些
@@ -56,7 +55,7 @@ Amazon SageMaker Autopilot 是一個很方便的工具，它會自動化分析�
 
 這部分當然也可以不手動下載而在 SageMaker Studio 裡的 Notebook 運行，詳細方法可以參考[這裡](https://gitlab.com/juliensimon/amazon-studio-demos/blob/master/dataset.ipynb)，其流程就是先下載資料至 Studio 中再用 SageMaker Python SDK 上傳到 S3 bucket 上面。如果要使用這種方法可以用 [kaggle](https://www.kaggle.com/c/ml2021spring-hw1/data) 在 Notebook 中下載資料集，詳細方法可以[參考](https://github.com/Kaggle/kaggle-api)，不過要注意這個 kaggle 網址下載的資料集 feature 名稱不唯一，需要自己再改一下 feature 名稱
 
-## 開始 Autopilot
+### 開始 Autopilot
 
 資料上傳到 S3 bucket 後，也不用像一般自己去訓練時去分割什麼 training set 或是 validation set 了，就直接整包丟入 Autopilot 它會幫你處理
 
@@ -151,7 +150,7 @@ Hyperparameter 調教要蠻久的，而且會產生很多訓練任務，我跑�
 
 可以看到它產出最好的模型 MSE 約為 0.95
 
-## 模型內容與端點設置
+### 模型內容與端點設置
 
 由 Autopilot 產生的 model 建議用設置端點來做 inference
 
@@ -179,7 +178,7 @@ Hyperparameter 調教要蠻久的，而且會產生很多訓練任務，我跑�
 
 ![Alt text](./img/deploy.png)
 
-## 測試模型
+### 測試模型
 
 在實際應用上，從上面的步驟做完產出模型後就能直接運用模型了
 
@@ -233,7 +232,7 @@ Hyperparameter 調教要蠻久的，而且會產生很多訓練任務，我跑�
 
 這個成績還算可以，能說是堪用，至少對於一個沒有 ML 經驗的人可以產生這個 model 算是很好了
 
-## 提醒
+### 提醒
 
 如果有實際做完這個測試，完成後請記得
 
@@ -250,7 +249,7 @@ Hyperparameter 調教要蠻久的，而且會產生很多訓練任務，我跑�
 
 下次要繼續作業開啟 Studio 就可以了
 
-## Studio 刪除
+### Studio 刪除
 
 Studio 如果沒資源在跑，且裡面沒有佔用太多空間基本上不會有費用
 
@@ -266,7 +265,7 @@ Studio 如果沒資源在跑，且裡面沒有佔用太多空間基本上不會�
 
 就能點選 **刪除 Studio** 了
 
-## 推薦學習資源
+### 推薦學習資源
 
 [官方講解影片](https://www.youtube.com/watch?v=Ra4pDxbIK2M&t=45s) 
 
