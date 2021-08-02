@@ -46,7 +46,6 @@ jupyter notebook 中可以選擇要加文字 cell 或是 code cell
 
 在範例 notebook中，我們先 import 一些要用到的 library
 
-
 	import sagemaker 
 	import boto3 
 	from sagemaker.amazon.amazon_estimator import get_image_uri
@@ -87,7 +86,7 @@ jupyter notebook 中可以選擇要加文字 cell 或是 code cell
 
 由於我們 S3 Bucket 中還未有任何資料
 
-我們先下載範例資料，這個範例資料簡單來說就是客戶會不會買一個特定產品，其中每一個 row 都是一個客戶，而最後兩個 column 則是會不會買的結果 (target) 
+我們先下載範例資料，這個範例資料簡單來說就是客戶會不會買一個特定產品，其中每一個 row 都是一個客戶，而最後兩個 column 則是會不會買的結果 (target)
 
 	import pandas as pd
 	import urllib
@@ -102,7 +101,7 @@ jupyter notebook 中可以選擇要加文字 cell 或是 code cell
 	except  Exception  as e:
 		print('Data load error: ',e)
 
-這個 cell 跑完就會下載檔案並且把資料讀進來這個 notebook 
+這個 cell 跑完就會下載檔案並且把資料讀進來這個 notebook
 
 
 	import numpy as np
@@ -163,7 +162,7 @@ jupyter notebook 中可以選擇要加文字 cell 或是 code cell
 	                                          max_wait=600,
 	                                          hyperparameters=hyperparameters)
 
-這裡在設置 SageMaker 的 Estimator，可以把這個想成自動 train 的套件，詳細可以[參見](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html) 
+這裡在設置 SageMaker 的 Estimator，可以把這個想成自動 train 的套件，詳細可以[參見](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html)
 
 設置完執行
 	
@@ -174,13 +173,14 @@ jupyter notebook 中可以選擇要加文字 cell 或是 code cell
 train 完可以去 S3 bucket 下面 output 確認
 
 ### 步驟六:  用 Endpoint 部屬模型
+
 	from sagemaker.predictor import CSVSerializer
 	xgb_predictor = estimator.deploy(initial_instance_count=1,instance_type='ml.m4.xlarge',serializer=CSVSerializer())
 
-這裡執行完就會產生 Endpoint 
+這裡執行完就會產生 Endpoint
 
 可以執行
-	
+
 	xgb_predictor.endpoint_name
 
 來看 Endpoint 名稱，其形式為 **"sagemaker-xgboost-YYYY-MM-DD-HH-MM-SS-SSS"**
