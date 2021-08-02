@@ -2,7 +2,7 @@
 
 Amazon SageMaker Autopilot 是一個很方便的工具，它會自動化分析資料、處理資料、選擇適合資料的演算法、訓練模型、調整模型的 **hyperparameters** 、**交叉驗證 (cross-validation)** 模型，此外，它還會自動產生資料探勘與候選演算法的筆記本 (.ipynb)，再加上最後整個 Autopilot 都結束後會產生的資料解釋報告。簡單來說，你只要給這個 Autopilot 一組資料，設置好你所 target 的 feature，它就會自動化產生一個訓練好的模型與關於資料與資料處理流程的報告給你，對於一個不會 ML 的人來說也能很好的應用
 
-不過這麼方便的工具還是有限制的，它只能應用在數據回歸或是分類任務上，遇到影像、文字或是其他 sequence-based 任務 (模型輸出長度不一定的任務) 就無法使用了，另外它也不能指定去使用 pre-trained model (別人訓練過、在某些任務結果有保證的模型) 與你的數據不能有太多數據遺失的情形
+不過這麼方便的工具還是有限制的，限制的內容可以在[官方講解影片](https://www.youtube.com/watch?v=Ra4pDxbIK2M&t=45s)，前段看到，它只能應用在數據回歸或是分類任務上，遇到影像、文字或是其他 sequence-based 任務 (模型輸出長度不一定的任務) 就無法使用了，另外它也不能指定去使用 pre-trained model (別人訓練過、在某些任務結果有保證的模型) 與你的數據不能有太多數據遺失的情形
 
 下面我就先基本介紹一下 Amazon SageMaker Studio 然後在 Amazon SageMaker Studio 上面做一個 Autopilot 實際應用範例
 
@@ -265,3 +265,9 @@ Studio 如果沒資源在跑，且裡面沒有佔用太多空間基本上不會�
 只要所有使用者都被刪除
 
 就能點選 **刪除 Studio** 了
+
+## 推薦學習資源
+
+[官方講解影片](https://www.youtube.com/watch?v=Ra4pDxbIK2M&t=45s) 
+
+[Julien Simon's AWS SageMaker Autopilot Demo](https://www.youtube.com/playlist?list=PLJgojBtbsuc0MjdtpJPo4g4PL8mMsd2nK)
