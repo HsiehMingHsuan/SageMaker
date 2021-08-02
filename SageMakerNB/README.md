@@ -1,12 +1,10 @@
-﻿
-
-## AWS SageMaker notebook instance
+﻿# AWS SageMaker notebook instance
 
 要使用 AWS SageMaker 有幾種方法，其中有包含用 AWS SageMaker Studio 的，其中的工具比較多，還有由自己開 Notebook 、 自己尋找演算法 train 的方法
 
 這裡先進行自己開 Notebook 方法的教學
 
-### 步驟一: 創建 AWS SageMaker Notebook Instance
+## 步驟一: 創建 AWS SageMaker Notebook Instance
 
 首先到 SageMaker 頁面下的 **筆記本**  **筆記本執行個體**
 
@@ -18,16 +16,15 @@
 
 接下來選擇所需的IAM 角色就可以開
 
-
 若沒有IAM角色，選擇 **建立新角色** ，並給予 **任何 S3 儲存貯體** 權限
 
-就可以點選 __建立筆記本執行個體__ 
+就可以點選 __建立筆記本執行個體__
 
-### 步驟二: 創建 jupyter Notebook 
+### 步驟二: 創建 jupyter Notebook
 
 步驟一做完後就能在 **筆記本執行個體** 看到創建的筆記本
 
-筆記本的右方有 **Open Jupyter | Open JupyterLab** 在這裡我們先點擊  **Open Jupyter** 
+筆記本的右方有 **Open Jupyter | Open JupyterLab** 在這裡我們先點擊  **Open Jupyter**
 
 打開後可以看到jupyter介面
 
@@ -39,7 +36,7 @@
 
 ### 步驟三: 由 jupyter notebook 端創建 S3 bucket 以存取訓練/測試資料以及模型
 
-打開創建的 jupyter notebook 
+打開創建的 jupyter notebook
 
 可以看到基礎 jupyter notebook 介面
 

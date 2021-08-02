@@ -49,7 +49,7 @@ Amazon SageMaker Autopilot 是一個很方便的工具，它會自動化分析�
 
 ![Alt text](./img/features.png)
 
-由於要使用 SageMaker Autopilot 前，資料必須是在 S3 bucket 中的，我們直接用 repo 中的 [covid.train.csv](./covid.train.csv)，下載完畢再手動上傳至 S3 bucket 就好，要注意 Autopilot 有一個要求就是各 feature 的名稱必須唯一，也就是這個.csv檔中的第一個  row，這組資料集已經有符合這個需求
+由於要使用 SageMaker Autopilot 前，資料必須是在 S3 bucket 中的，我們直接用 repo 中的 [covid.train.csv](./data/covid.train.csv)，下載完畢再手動上傳至 S3 bucket 就好，要注意 Autopilot 有一個要求就是各 feature 的名稱必須唯一，也就是這個.csv檔中的第一個  row，這組資料集已經有符合這個需求
 
     AL	AK	AZ	AR	CA	CO	CT	FL	GA	ID	IL	IN	IA	KS	KY	LA	MD	MA	MI	MN	MS	MO	NE	NV	NJ	NM	NY	NC	OH	OK	OR	PA	RI	SC	TX	UT	VA	WA	WV	WI	cli_3	ili_3	hh_cmnty_cli_3	nohh_cmnty_cli_3	wearing_mask_3	travel_outside_state_3	work_outside_home_3	shop_3	restaurant_3	spent_time_3	large_event_3	public_transit_3	anxious_3	depressed_3	felt_isolated_3	worried_become_ill_3	worried_finances_3	tested_positive_3	cli_2	ili_2	hh_cmnty_cli_2	nohh_cmnty_cli_2	wearing_mask_2	travel_outside_state_2	work_outside_home_2	shop_2	restaurant_2	spent_time_2	large_event_2	public_transit_2	anxious_2	depressed_2	felt_isolated_2	worried_become_ill_2	worried_finances_2	tested_positive_2	cli	ili	hh_cmnty_cli	nohh_cmnty_cli	wearing_mask	travel_outside_state	work_outside_home	shop	restaurant	spent_time	large_event	public_transit	anxious	depressed	felt_isolated	worried_become_ill	worried_finances	tested_positive
 
@@ -131,7 +131,7 @@ Autopilot experiment 全部完成後，以上兩個 Notebook 也會存在之前�
 
 至於 Autopilot 開始到完畢要多少時間基本上要看任務內容與資料的多寡
 
-這邊跑示範的時候是使用 [2700 個 row 的資料](./covid.train.csv)，到全部完成差不多跑了兩三個小時
+這邊跑示範的時候是使用 [2700 個 row 的資料](./data/covid.train.csv)，到全部完成差不多跑了兩三個小時
 
 我這個範例最後的總花費大概是 7 美元左右
 
@@ -187,9 +187,9 @@ Hyperparameter 調教要蠻久的，而且會產生很多訓練任務，我跑�
 
 ![Alt text](./img/result.png)
 
-不過這個資料集在[這個課程](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html)上的 hw1 有另外提供一個沒有給 "test_positive" 的 [test dataset](./covid.test.csv)，用其做 inference 預測 "test_positive" 可以在 [kaggle](https://www.kaggle.com/c/ml2021spring-hw1/leaderboard) 上面上傳結果，來看一下這個 model 的程度在哪
+不過這個資料集在[這個課程](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html)上的 hw1 有另外提供一個沒有給 "test_positive" 的 [test dataset](./data/covid.test.csv)，用其做 inference 預測 "test_positive" 可以在 [kaggle](https://www.kaggle.com/c/ml2021spring-hw1/leaderboard) 上面上傳結果，來看一下這個 model 的程度在哪
 
-所以我另外在 Amazon SageMaker Studio 上面創建了一個 [Notebook](./test.ipynb) 來產生符合能上傳至[這個 kaggle competition](https://www.kaggle.com/c/ml2021spring-hw1/leaderboard) 的形式([範例](./sampleSubmission.csv))
+所以我另外在 Amazon SageMaker Studio 上面創建了一個 [Notebook](./test.ipynb) 來產生符合能上傳至[這個 kaggle competition](https://www.kaggle.com/c/ml2021spring-hw1/leaderboard) 的形式([範例](./data/sampleSubmission.csv))
 
 也可以順便當作使用 **Endpoint 端點**的範例
 
@@ -205,7 +205,7 @@ Hyperparameter 調教要蠻久的，而且會產生很多訓練任務，我跑�
 
     ep_name = 'SageMaker-AutoPilot-Test-20210727'
 
-下面這邊就是把要測試的資料一個 row 一個 row 的丟進端點並存取結果成一個.csv檔，結果在[這裡](./predict.csv)
+下面這邊就是把要測試的資料一個 row 一個 row 的丟進端點並存取結果成一個.csv檔，結果在[這裡](./data/predict.csv)
 
     import csv
     with open('predict.csv', 'w') as fp:
