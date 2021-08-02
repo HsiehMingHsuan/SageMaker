@@ -4,7 +4,13 @@
 
 | 步驟    |  定義問題|取得資料|選擇模型、選擇超參數|開始訓練|應用模型|
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-|   AWS 資源   | [自行判斷](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-problem-types.html)|自行取得|SageMaker Autopilot|SageMaker Notebook Instace/Studio/Autopilot|Endpoint Deploy/ Neo compile model to edge devices|
+|   AWS 資源   | [自行判斷](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-problem-types.html)|自行取得|SageMaker Autopilot|SageMaker Notebook Instace/Studio/Autopilot|Endpoint Deploy/ Neo compile model + Setup environment on edge devices|
+
+* [SageMaker Studio & Autopilot demo](./SageMakerStudio_AutoPilot)
+* [SageMaker Notebook instance demo](./SageMakerNB)
+* SageMaker inferecing on edge devices with Neo
+    1. [Compile model with Neo](./Model_to_NeoCompiled_Model)
+    2. [Setup edge device to run model](./Neo_on_edge_devices)
 
 ## ML的概念
 
