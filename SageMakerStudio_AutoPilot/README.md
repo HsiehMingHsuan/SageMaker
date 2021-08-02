@@ -109,9 +109,9 @@ Auto Deploy 如果選的話它 Autopilot 結束就會直接幫你把它產出最
 
 這樣的按鈕，按下就能在 Studio 中開啟
 
-[DataExplorationNotebook](./SageMakerAutopilotDataExplorationNotebook.ipynb) 主要是對資料做一點簡單分析
+[DataExplorationNotebook](./generatedNB/SageMakerAutopilotDataExplorationNotebook.ipynb) 主要是對資料做一點簡單分析
 
-而 [CandidateDefinitionNotebook](./SageMakerAutopilotCandidateDefinitionNotebook.ipynb) 就是列
+而 [CandidateDefinitionNotebook](./generatedNB/SageMakerAutopilotCandidateDefinitionNotebook.ipynb) 就是列
 出建議的資料處理與演算法，並且開始訓練與自動化調整 **hyperparameters**
 
 Autopilot experiment 全部完成後，以上兩個 Notebook 也會存在之前設置 experiment 的 output 下的
