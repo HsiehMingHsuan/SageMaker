@@ -117,7 +117,7 @@ jupyter notebook 中可以選擇要加文字 cell 或是 code cell
 	axis=1)],
 	axis=1).to_csv('train.csv',  index=False,  header=False)
 	boto3.Session().resource('s3').Bucket(bucket_name).Object(os.path.join(prefix,  'train/train.csv')).upload_file('train.csv')
-	s3_input_train = sagemaker.s3_input(s3_data='s3://{}/{}/train'.format(bucket_name, prefix),  content_type='csv')
+	s3_input_train = sagemaker.TrainingInput(s3_data='s3://{}/{}/train'.format(bucket_name, prefix),  content_type='csv')
 
 這裡由於之後要給 xgboost 訓練時需要特別形式 (其他演算法可能不一樣)，就是 target feature 要放在第一個 column 且不需要 header 以及 index
 
