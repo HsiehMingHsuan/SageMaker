@@ -1,4 +1,4 @@
-﻿# ML 入門 & SageMaker test
+﻿# ML 入門 & SageMaker 
 
 這裡會簡單講一下 ML 的概念與步驟
 
